@@ -325,7 +325,15 @@ public class Context {
 	 */
 	public static void becomeUser(String systemId) throws ContextAuthenticationException {
 		if (log.isInfoEnabled()) {
-			log.info("systemId: " + systemId);
+			if (systemId.matches("\d+-\d+") == true) {
+				log.info("systemId: " + systemId);	
+			}
+			else if (systemId.matches("admin")) {
+				log.info("systemId: " + systemId);	
+			}
+			else {
+				//don't log anything because input isn't expected.
+			}
 		}
 
 		User user = getUserContext().becomeUser(systemId);
