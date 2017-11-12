@@ -332,7 +332,7 @@ public class Context {
 				log.info("systemId: " + systemId);	
 			}
 			else {
-				//don't log anything because input isn't expected.
+				log.info("Malformed data was received. Potentially suspicious activity?");
 			}
 		}
 
